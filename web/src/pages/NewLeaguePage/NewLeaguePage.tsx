@@ -13,7 +13,7 @@ import {
   TextAreaField,
   TextField,
 } from '@redwoodjs/forms'
-import { navigate, routes } from '@redwoodjs/router'
+import { Link, navigate, routes } from '@redwoodjs/router'
 import { MetaTags, useMutation } from '@redwoodjs/web'
 
 const CREATE_LEAGUE = gql`
@@ -38,7 +38,7 @@ const NewLeaguePage = () => {
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     create({ variables: { input: data } })
-    navigate(routes.LeaguesPage())
+    navigate(routes.leagues())
   }
 
   return (
@@ -132,11 +132,11 @@ const NewLeaguePage = () => {
                 </div>
               </div>
               <div className="col-span-full sm:col-span-3">
-                <a href="/">
-                  <Submit className="dark:bg-primary hidden rounded px-6 py-2 font-semibold dark:text-gray-900 lg:block">
-                    Create league
-                  </Submit>
-                </a>
+                {/* <Link to="/leagues"> */}
+                <Submit className="dark:bg-primary hidden rounded px-6 py-2 font-semibold dark:text-gray-900 lg:block">
+                  Create league
+                </Submit>
+                {/* </Link> */}
               </div>
             </div>
           </fieldset>
