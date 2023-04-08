@@ -7,8 +7,8 @@ export const schema = gql`
   }
 
   type Query {
-    leagues: [League!]! @requireAuth
-    league(id: Int!): League @requireAuth
+    leagues: [League!]! @skipAuth
+    league(id: Int!): League @skipAuth
   }
 
   input CreateLeagueInput {

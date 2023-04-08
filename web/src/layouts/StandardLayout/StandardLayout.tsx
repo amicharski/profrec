@@ -3,11 +3,14 @@ import React from 'react'
 
 import { NavLink, routes } from '@redwoodjs/router'
 
+import { useAuth } from 'src/auth'
+
 type StandardLayoutProps = {
   children?: React.ReactNode
 }
 
 const StandardLayout = ({ children }: StandardLayoutProps) => {
+  const { isAuthenticated, currentUser } = useAuth()
   return (
     <div className="h-screen w-screen bg-slate-800 p-9 text-slate-300">
       <header className="p-4 dark:bg-slate-800 dark:text-slate-100">
@@ -59,16 +62,27 @@ const StandardLayout = ({ children }: StandardLayoutProps) => {
                 className="w-32 rounded-md py-2 pl-10 text-sm focus:outline-none dark:bg-gray-800 dark:text-gray-100 focus:dark:bg-gray-900 sm:w-auto"
               />
             </div>
-            <>
-              <a href="/leagues/new">
+            {isAuthenticated ? (
+              <>
+                <a href="/leagues/new">
+                  <button
+                    type="button"
+                    className="dark:bg-primary hidden rounded px-6 py-2 font-semibold dark:text-gray-900 lg:block"
+                  >
+                    Create new league
+                  </button>
+                </a>
+              </>
+            ) : (
+              <a href="/login">
                 <button
                   type="button"
                   className="dark:bg-primary hidden rounded px-6 py-2 font-semibold dark:text-gray-900 lg:block"
                 >
-                  Create new league
+                  Log in
                 </button>
               </a>
-            </>
+            )}
           </div>
           <button title="Open menu" type="button" className="p-4 lg:hidden">
             <svg

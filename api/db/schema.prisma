@@ -8,6 +8,28 @@ generator client {
   binaryTargets = "native"
 }
 
+model User {
+  id                   Int              @id @default(autoincrement())
+  username             String           @unique
+  email                String           @unique
+  hashedPassword       String
+  salt                 String
+  resetToken           String?
+  resetTokenExpiresAt  DateTime?
+  webAuthnChallenge    String?          @unique
+  credentials          UserCredential[]
+  leaguesCommissioning League[]
+}
+
+model UserCredential {
+  id         String  @id
+  userId     Int
+  user       User    @relation(fields: [userId], references: [id])
+  publicKey  Bytes
+  transports String?
+  counter    BigInt
+}
+
 enum Sport {
   BASEBALL
   BASKETBALL
@@ -18,8 +40,10 @@ enum Sport {
 }
 
 model League {
-  id          Int    @id @default(autoincrement())
-  name        String
-  description String
-  sport       String
+  id           Int    @id @default(autoincrement())
+  name         String
+  description  String
+  sport        String
+  commissioner User?  @relation(fields: [userId], references: [id])
+  userId       Int?
 }

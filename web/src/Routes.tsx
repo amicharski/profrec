@@ -9,27 +9,26 @@
 
 import { Set, Router, Route } from '@redwoodjs/router'
 
-import ScaffoldLayout from 'src/layouts/ScaffoldLayout'
-
+import { useAuth } from './auth'
 import StandardLayout from './layouts/StandardLayout/StandardLayout'
-import LeaguePage from './pages/League/LeaguePage/LeaguePage'
+import ForgotPasswordPage from './pages/ForgotPasswordPage/ForgotPasswordPage'
 import LeaguesPage from './pages/League/LeaguesPage/LeaguesPage'
+import LoginPage from './pages/LoginPage/LoginPage'
+import ResetPasswordPage from './pages/ResetPasswordPage/ResetPasswordPage'
+import SignupPage from './pages/SignupPage/SignupPage'
 
 const Routes = () => {
   return (
-    <Router>
-      <Route path="/new-league" page={NewLeaguePage} name="newLeague" />
-      <Set wrap={ScaffoldLayout} title="Leagues" titleTo="leagues" buttonLabel="New League" buttonTo="newLeague">
-        {/* <Route path="/leagues/new" page={LeagueNewLeaguePage} name="newLeague" /> */}
-        <Route path="/leagues/{id:Int}/edit" page={LeagueEditLeaguePage} name="editLeague" />
-        {/* <Route path="/leagues/{id:Int}" page={LeagueLeaguePage} name="league" />
-        <Route path="/leagues" page={LeagueLeaguesPage} name="leagues" /> */}
-      </Set>
+    <Router useAuth={useAuth}>
+      <Route path="/login" page={LoginPage} name="login" />
+      <Route path="/signup" page={SignupPage} name="signup" />
+      <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
+      <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" />
       <Set wrap={StandardLayout}>
-        <Route path="/" page={HomePage} name="home" />
         <Route path="/leagues" page={LeaguesPage} name="leagues" />
         <Route path="/leagues/new" page={NewLeaguePage} name="newLeague" />
-        <Route path="/league/{id:Int}" page={LeaguePage} name="league" />
+        <Route path="/league/{id:Int}" page={LeagueLeaguePage} name="league" />
+        <Route path="/" page={HomePage} name="home" />
       </Set>
       <Route notfound page={NotFoundPage} />
     </Router>
