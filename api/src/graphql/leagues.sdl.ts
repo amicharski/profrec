@@ -1,9 +1,15 @@
 export const schema = gql`
+  type User {
+    username: String!
+    id: Int!
+  }
+
   type League {
     id: Int!
     name: String!
     description: String!
     sport: String!
+    user: User!
   }
 
   type Query {
@@ -15,6 +21,7 @@ export const schema = gql`
     name: String!
     description: String!
     sport: String!
+    # userId: Int!
   }
 
   input UpdateLeagueInput {

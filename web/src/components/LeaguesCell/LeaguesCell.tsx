@@ -9,6 +9,7 @@ export const QUERY = gql`
       id
       name
       description
+      sport
     }
   }
 `
@@ -42,6 +43,9 @@ export const Success = ({ leagues }: CellSuccessProps<LeaguesQuery>) => {
               <th title="League description" className="p-3 text-left">
                 Description
               </th>
+              <th title="League sport" className="p-3 text-left">
+                Sport
+              </th>
               <th title="League details" className="p-3 text-left">
                 League Details
               </th>
@@ -58,6 +62,10 @@ export const Success = ({ leagues }: CellSuccessProps<LeaguesQuery>) => {
                   <td className="px-3 py-2 text-left">{league.name}</td>
                   <td className="px-3 py-2 text-left">{league.description}</td>
                   <td className="px-3 py-2 text-left">
+                    {league.sport.substring(0, 1) +
+                      league.sport.substring(1).toLowerCase()}
+                  </td>
+                  <td className="px-3 py-2 text-left">
                     {/* <Link to={routes.league({ id: league.id })}>
 
 
@@ -67,7 +75,7 @@ export const Success = ({ leagues }: CellSuccessProps<LeaguesQuery>) => {
                     */}
                     <button
                       type="button"
-                      className="dark:bg-primary hidden rounded px-6 py-2 font-semibold dark:text-gray-800 lg:block"
+                      className="hidden rounded px-6 py-2 font-semibold dark:bg-primary dark:text-gray-800 lg:block"
                       onClick={() => details(league.id)}
                     >
                       Details

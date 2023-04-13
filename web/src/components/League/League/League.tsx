@@ -62,7 +62,10 @@ const League = ({ league }: Props) => {
             </tr>
             <tr>
               <th>Sport</th>
-              <td>{league.sport}</td>
+              <td>
+                {league.sport.substring(0, 1) +
+                  league.sport.substring(1).toLowerCase()}
+              </td>
             </tr>
           </tbody>
         </table>

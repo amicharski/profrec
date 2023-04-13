@@ -37,13 +37,14 @@ enum Sport {
   FOOTBALL
   LACROSSE
   SOFTBALL
+  SOCCER
 }
 
 model League {
-  id           Int    @id @default(autoincrement())
-  name         String
-  description  String
-  sport        String
-  commissioner User?  @relation(fields: [userId], references: [id])
-  userId       Int?
+  id          Int    @id @default(autoincrement())
+  name        String
+  description String
+  sport       String
+  user        User?  @relation(fields: [userId], references: [id])
+  userId      Int?
 }

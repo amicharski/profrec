@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react'
+
 import {
   CreateLeagueMutation,
   CreateLeagueMutationVariables,
@@ -6,6 +8,7 @@ import {
 import {
   FieldError,
   Form,
+  InputField,
   Label,
   SelectField,
   Submit,
@@ -15,6 +18,9 @@ import {
 } from '@redwoodjs/forms'
 import { Link, navigate, routes } from '@redwoodjs/router'
 import { MetaTags, useMutation } from '@redwoodjs/web'
+
+import { useAuth } from 'src/auth'
+import { getCurrentUser } from 'src/lib/auth'
 
 const CREATE_LEAGUE = gql`
   mutation CreateLeagueMutation($input: CreateLeagueInput!) {
@@ -37,7 +43,12 @@ const NewLeaguePage = () => {
   >(CREATE_LEAGUE)
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
-    create({ variables: { input: data } })
+    create({
+      variables: {
+        input: { ...data },
+      },
+    })
+
     navigate(routes.leagues())
   }
 
@@ -74,7 +85,7 @@ const NewLeaguePage = () => {
                     },
                   }}
                   errorClassName="error"
-                  className="w-full rounded-md focus:ring focus:ring-violet-400 focus:ring-opacity-75 dark:border-gray-700 dark:text-gray-900"
+                  className="focus:ring-violet-400 w-full rounded-md focus:ring focus:ring-opacity-75 dark:border-gray-700 dark:text-gray-900"
                 />
                 <div className="text-red-500">
                   <FieldError name="name" className="error" />
@@ -97,7 +108,7 @@ const NewLeaguePage = () => {
                       },
                     },
                   }}
-                  className="w-full rounded-md focus:ring focus:ring-violet-400 focus:ring-opacity-75 dark:border-gray-700 dark:text-gray-900"
+                  className="focus:ring-violet-400 w-full rounded-md focus:ring focus:ring-opacity-75 dark:border-gray-700 dark:text-gray-900"
                 >
                   <option value="BASKETBALL">Basketball</option>
                   <option value="FOOTBALL">Football</option>
@@ -125,7 +136,7 @@ const NewLeaguePage = () => {
                     },
                   }}
                   errorClassName="error"
-                  className="w-full rounded-md focus:ring focus:ring-violet-400 focus:ring-opacity-75 dark:border-gray-700 dark:text-gray-900"
+                  className="focus:ring-violet-400 w-full rounded-md focus:ring focus:ring-opacity-75 dark:border-gray-700 dark:text-gray-900"
                 />
                 <div className="text-red-500">
                   <FieldError name="description" className="error" />
@@ -133,7 +144,7 @@ const NewLeaguePage = () => {
               </div>
               <div className="col-span-full sm:col-span-3">
                 {/* <Link to="/leagues"> */}
-                <Submit className="dark:bg-primary hidden rounded px-6 py-2 font-semibold dark:text-gray-900 lg:block">
+                <Submit className="hidden rounded px-6 py-2 font-semibold dark:bg-primary dark:text-gray-900 lg:block">
                   Create league
                 </Submit>
                 {/* </Link> */}

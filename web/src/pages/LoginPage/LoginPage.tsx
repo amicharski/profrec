@@ -52,7 +52,7 @@ const LoginPage = ({ type }) => {
   }, [])
 
   const onSubmit = async (data) => {
-    const webAuthnSupported = await webAuthn.isSupported()
+    const webAuthnSupported = false
 
     if (webAuthnSupported) {
       setShouldShowWebAuthn(true)
@@ -113,13 +113,13 @@ const LoginPage = ({ type }) => {
 
   const AuthWebAuthnPrompt = () => {
     return (
-      <div className="mx-4 mt-6 mb-4 leading-snug">
+      <div className="mx-4 mb-4 mt-6 leading-snug">
         <h2 className="mb-4 text-4xl font-bold">WebAuthn Login Enabled</h2>
         <p>Log in with your fingerprint, face or PIN</p>
-        <div className="my-3 mx-2 flex justify-center">
+        <div className="mx-2 my-3 flex justify-center">
           <button
             type="button"
-            className="dark:bg-primary hidden rounded px-6 py-2 font-semibold dark:text-gray-900 lg:block"
+            className="hidden rounded px-6 py-2 font-semibold dark:bg-primary dark:text-gray-900 lg:block"
             onClick={onAuthenticate}
           >
             Open Authenticator
@@ -130,23 +130,23 @@ const LoginPage = ({ type }) => {
   }
 
   const RegisterWebAuthnPrompt = () => (
-    <div className="mx-4 mt-6 mb-4 leading-snug">
+    <div className="mx-4 mb-4 mt-6 leading-snug">
       <h2 className="mb-4 text-4xl font-bold">No more Passwords!</h2>
       <p>
         Depending on your device you can log in with your fingerprint, face or
         PIN next time.
       </p>
-      <div className="my-3 mx-2 flex justify-center">
+      <div className="mx-2 my-3 flex justify-center">
         <button
           type="button"
-          className="dark:bg-primary hidden rounded px-6 py-2 font-semibold dark:text-gray-900 lg:block"
+          className="hidden rounded px-6 py-2 font-semibold dark:bg-primary dark:text-gray-900 lg:block"
           onClick={onRegister}
         >
           Turn On
         </button>
         <button
           type="button"
-          className="dark:text-primary hidden rounded px-6 py-2 font-semibold dark:bg-slate-900 lg:block"
+          className="hidden rounded px-6 py-2 font-semibold dark:bg-slate-900 dark:text-primary lg:block"
           onClick={onSkip}
         >
           Skip for now
@@ -214,8 +214,8 @@ const LoginPage = ({ type }) => {
         className="mt-1 block text-xs font-semibold uppercase"
       />
 
-      <div className="my-3 mx-2 flex justify-center">
-        <Submit className="dark:bg-primary hidden rounded px-6 py-2 font-semibold dark:text-gray-900 lg:block">
+      <div className="mx-2 my-3 flex justify-center">
+        <Submit className="hidden rounded px-6 py-2 font-semibold dark:bg-primary dark:text-gray-900 lg:block">
           Login
         </Submit>
       </div>
