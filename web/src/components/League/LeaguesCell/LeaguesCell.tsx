@@ -12,6 +12,9 @@ export const QUERY = gql`
       name
       description
       sport
+      user {
+        id
+      }
     }
   }
 `

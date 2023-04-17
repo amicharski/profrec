@@ -1,0 +1,282 @@
+{
+  "fieldName": "user",
+  "fieldNodes": [
+    {
+      "kind": "Field",
+      "name": {
+        "kind": "Name",
+        "value": "user",
+        "loc": { "start": 79, "end": 83 }
+      },
+      "arguments": [],
+      "directives": [],
+      "selectionSet": {
+        "kind": "SelectionSet",
+        "selections": [
+          {
+            "kind": "Field",
+            "name": {
+              "kind": "Name",
+              "value": "id",
+              "loc": { "start": 92, "end": 94 }
+            },
+            "arguments": [],
+            "directives": [],
+            "loc": { "start": 92, "end": 94 }
+          },
+          {
+            "kind": "Field",
+            "name": {
+              "kind": "Name",
+              "value": "username",
+              "loc": { "start": 101, "end": 109 }
+            },
+            "arguments": [],
+            "directives": [],
+            "loc": { "start": 101, "end": 109 }
+          },
+          {
+            "kind": "Field",
+            "name": {
+              "kind": "Name",
+              "value": "__typename",
+              "loc": { "start": 116, "end": 126 }
+            },
+            "arguments": [],
+            "directives": [],
+            "loc": { "start": 116, "end": 126 }
+          }
+        ],
+        "loc": { "start": 84, "end": 132 }
+      },
+      "loc": { "start": 79, "end": 132 }
+    }
+  ],
+  "returnType": "User!",
+  "parentType": "League",
+  "path": {
+    "prev": { "prev": { "key": "leagues", "typename": "Query" }, "key": 0 },
+    "key": "user",
+    "typename": "League"
+  },
+  "schema": {
+    "__validationErrors": [],
+    "extensions": {},
+    "astNode": {
+      "kind": "SchemaDefinition",
+      "directives": [],
+      "operationTypes": [
+        {
+          "kind": "OperationTypeDefinition",
+          "operation": "query",
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Query",
+              "loc": { "start": 1365, "end": 1370 }
+            },
+            "loc": { "start": 1365, "end": 1370 }
+          },
+          "loc": { "start": 1358, "end": 1370 }
+        },
+        {
+          "kind": "OperationTypeDefinition",
+          "operation": "mutation",
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Mutation",
+              "loc": { "start": 1383, "end": 1391 }
+            },
+            "loc": { "start": 1383, "end": 1391 }
+          },
+          "loc": { "start": 1373, "end": 1391 }
+        }
+      ],
+      "loc": { "start": 1347, "end": 1393 }
+    },
+    "extensionASTNodes": [],
+    "_queryType": "Query",
+    "_mutationType": "Mutation",
+    "_directives": [
+      "@requireAuth",
+      "@skipAuth",
+      "@include",
+      "@skip",
+      "@deprecated",
+      "@specifiedBy"
+    ],
+    "_typeMap": {
+      "BigInt": "BigInt",
+      "Date": "Date",
+      "Time": "Time",
+      "DateTime": "DateTime",
+      "JSON": "JSON",
+      "JSONObject": "JSONObject",
+      "Redwood": "Redwood",
+      "String": "String",
+      "Query": "Query",
+      "Int": "Int",
+      "User": "User",
+      "League": "League",
+      "CreateLeagueInput": "CreateLeagueInput",
+      "UpdateLeagueInput": "UpdateLeagueInput",
+      "Mutation": "Mutation",
+      "Boolean": "Boolean",
+      "__Schema": "__Schema",
+      "__Type": "__Type",
+      "__TypeKind": "__TypeKind",
+      "__Field": "__Field",
+      "__InputValue": "__InputValue",
+      "__EnumValue": "__EnumValue",
+      "__Directive": "__Directive",
+      "__DirectiveLocation": "__DirectiveLocation"
+    },
+    "_subTypeMap": {},
+    "_implementationsMap": {}
+  },
+  "fragments": {},
+  "operation": {
+    "kind": "OperationDefinition",
+    "operation": "query",
+    "name": {
+      "kind": "Name",
+      "value": "LeaguesQuery",
+      "loc": { "start": 6, "end": 18 }
+    },
+    "variableDefinitions": [],
+    "directives": [],
+    "selectionSet": {
+      "kind": "SelectionSet",
+      "selections": [
+        {
+          "kind": "Field",
+          "name": {
+            "kind": "Name",
+            "value": "leagues",
+            "loc": { "start": 23, "end": 30 }
+          },
+          "arguments": [],
+          "directives": [],
+          "selectionSet": {
+            "kind": "SelectionSet",
+            "selections": [
+              {
+                "kind": "Field",
+                "name": {
+                  "kind": "Name",
+                  "value": "id",
+                  "loc": { "start": 37, "end": 39 }
+                },
+                "arguments": [],
+                "directives": [],
+                "loc": { "start": 37, "end": 39 }
+              },
+              {
+                "kind": "Field",
+                "name": {
+                  "kind": "Name",
+                  "value": "name",
+                  "loc": { "start": 44, "end": 48 }
+                },
+                "arguments": [],
+                "directives": [],
+                "loc": { "start": 44, "end": 48 }
+              },
+              {
+                "kind": "Field",
+                "name": {
+                  "kind": "Name",
+                  "value": "description",
+                  "loc": { "start": 53, "end": 64 }
+                },
+                "arguments": [],
+                "directives": [],
+                "loc": { "start": 53, "end": 64 }
+              },
+              {
+                "kind": "Field",
+                "name": {
+                  "kind": "Name",
+                  "value": "sport",
+                  "loc": { "start": 69, "end": 74 }
+                },
+                "arguments": [],
+                "directives": [],
+                "loc": { "start": 69, "end": 74 }
+              },
+              {
+                "kind": "Field",
+                "name": {
+                  "kind": "Name",
+                  "value": "user",
+                  "loc": { "start": 79, "end": 83 }
+                },
+                "arguments": [],
+                "directives": [],
+                "selectionSet": {
+                  "kind": "SelectionSet",
+                  "selections": [
+                    {
+                      "kind": "Field",
+                      "name": {
+                        "kind": "Name",
+                        "value": "id",
+                        "loc": { "start": 92, "end": 94 }
+                      },
+                      "arguments": [],
+                      "directives": [],
+                      "loc": { "start": 92, "end": 94 }
+                    },
+                    {
+                      "kind": "Field",
+                      "name": {
+                        "kind": "Name",
+                        "value": "username",
+                        "loc": { "start": 101, "end": 109 }
+                      },
+                      "arguments": [],
+                      "directives": [],
+                      "loc": { "start": 101, "end": 109 }
+                    },
+                    {
+                      "kind": "Field",
+                      "name": {
+                        "kind": "Name",
+                        "value": "__typename",
+                        "loc": { "start": 116, "end": 126 }
+                      },
+                      "arguments": [],
+                      "directives": [],
+                      "loc": { "start": 116, "end": 126 }
+                    }
+                  ],
+                  "loc": { "start": 84, "end": 132 }
+                },
+                "loc": { "start": 79, "end": 132 }
+              },
+              {
+                "kind": "Field",
+                "name": {
+                  "kind": "Name",
+                  "value": "__typename",
+                  "loc": { "start": 137, "end": 147 }
+                },
+                "arguments": [],
+                "directives": [],
+                "loc": { "start": 137, "end": 147 }
+              }
+            ],
+            "loc": { "start": 31, "end": 151 }
+          },
+          "loc": { "start": 23, "end": 151 }
+        }
+      ],
+      "loc": { "start": 19, "end": 153 }
+    },
+    "loc": { "start": 0, "end": 153 }
+  },
+  "variableValues": {}
+}

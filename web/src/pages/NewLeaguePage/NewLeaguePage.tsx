@@ -49,6 +49,8 @@ const NewLeaguePage = () => {
       },
     })
 
+    console.log(`data: ${JSON.stringify(data)}`)
+
     navigate(routes.leagues())
   }
 

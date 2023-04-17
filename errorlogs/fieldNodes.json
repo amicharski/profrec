@@ -1,0 +1,52 @@
+[
+  {
+    "kind": "Field",
+    "name": {
+      "kind": "Name",
+      "value": "user",
+      "loc": { "start": 79, "end": 83 }
+    },
+    "arguments": [],
+    "directives": [],
+    "selectionSet": {
+      "kind": "SelectionSet",
+      "selections": [
+        {
+          "kind": "Field",
+          "name": {
+            "kind": "Name",
+            "value": "id",
+            "loc": { "start": 92, "end": 94 }
+          },
+          "arguments": [],
+          "directives": [],
+          "loc": { "start": 92, "end": 94 }
+        },
+        {
+          "kind": "Field",
+          "name": {
+            "kind": "Name",
+            "value": "username",
+            "loc": { "start": 101, "end": 109 }
+          },
+          "arguments": [],
+          "directives": [],
+          "loc": { "start": 101, "end": 109 }
+        },
+        {
+          "kind": "Field",
+          "name": {
+            "kind": "Name",
+            "value": "__typename",
+            "loc": { "start": 116, "end": 126 }
+          },
+          "arguments": [],
+          "directives": [],
+          "loc": { "start": 116, "end": 126 }
+        }
+      ],
+      "loc": { "start": 84, "end": 132 }
+    },
+    "loc": { "start": 79, "end": 132 }
+  }
+]

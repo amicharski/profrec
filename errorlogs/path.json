@@ -1,0 +1,5 @@
+{
+  "prev": { "prev": { "key": "leagues", "typename": "Query" }, "key": 0 },
+  "key": "user",
+  "typename": "League"
+}

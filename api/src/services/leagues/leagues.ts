@@ -1,20 +1,28 @@
-import type { QueryResolvers, MutationResolvers } from 'types/graphql'
+import type {
+  QueryResolvers,
+  MutationResolvers,
+  LeagueRelationResolvers,
+} from 'types/graphql'
 
 import { db } from 'src/lib/db'
 
 export const leagues: QueryResolvers['leagues'] = () => {
-  return db.league.findMany()
+  return db.league.findMany({ include: { user: true } })
 }
 
 export const league: QueryResolvers['league'] = ({ id }) => {
   return db.league.findUnique({
     where: { id },
+    include: { user: true },
   })
 }
 
+export const league: LeagueRelationResolvers = {
+  user: (_obj, { root }) =>
+    db.league.findUnique({ where: { id: root?.id } }).user() as Promise<User>,
+}
+
 export const createLeague: MutationResolvers['createLeague'] = ({ input }) => {
-  console.log(`userId: ${context.currentUser.id}`)
-  console.log(`userId type: ${typeof context.currentUser.id}`)
   return db.league.create({
     data: { ...input, userId: context.currentUser.id },
   })
@@ -36,6 +44,6 @@ export const deleteLeague: MutationResolvers['deleteLeague'] = ({ id }) => {
   })
 }
 
-export const League: any = {
-  user: (_obj, { root }) => db.league.findFirst({ where: { id: root.userId } }),
-}
+// export const League: any = {
+//   user: (_obj, { root }) => db.league.findFirst({ where: { id: root.userId } }),
+// }
